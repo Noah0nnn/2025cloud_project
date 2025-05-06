@@ -1,0 +1,31 @@
+name: Auto Docker Build
+
+on:
+  push:        # 推送時觸發
+  pull_request: # PR 時觸發
+  workflow_dispatch: # 可手動執行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build Docker image (image1)
+      uses: docker/build-push-action@v5
+      with:
+        context: ./image1
+        push: false         # 不推送，只是 build
+        tags: image1:latest
+
+    - name: Build Docker image (image2)
+      uses: docker/build-push-action@v5
+      with:
+        context: ./image2
+        push: false
+        tags: image2:latest
