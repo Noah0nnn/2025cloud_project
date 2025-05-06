@@ -1,14 +1,11 @@
-# 2025cloud
+# 2025cloud 專案
 
-This repository contains two simple Docker applications:
-- `image1`: Prints "Hello from image 1"
-- `image2`: Prints "Hello from image 2"
+本專案為一個公開的 Docker 專案示範，包含兩個不同版本的應用程式，並對應至兩個以上的 container image，分別為 `v1` 和 `v2`。這些映像檔皆已發布至 Docker Hub 公開倉庫 [`naoh0nnn/2025cloud`](https://hub.docker.com/repository/docker/noah0nnn/2025cloud)。
 
-These images are designed for demonstration and are built from minimal `Dockerfile`s using Alpine Linux.
 
 ---
 
-## 🐳 How to Build Docker Images Locally
+## 🐳 如何 Build Docker Images 
 
 You can manually build each image with the following commands:
 
@@ -22,6 +19,21 @@ docker build -t image1:latest ./image1
 
 ```bash
 docker build -t image2:latest ./image2
+```
+---
+### 如何 Run Container
+
+可以選擇「從本地 build 的 image」或「從 Docker Hub 上下載的 image」來執行 container。
+
+✅ 方法一：使用本地建置的 image 執行
+```bash
+docker run --rm noah0nnn/2025cloud:v1
+docker run --rm noah0nnn/2025cloud:v2
+```
+✅ 方法二：直接從 Docker Hub 拉取並執行
+```bash
+docker run --rm noah0nnn/2025cloud:v1
+docker run --rm noah0nnn/2025cloud:v2
 ```
 ---
 ### 如何將映像檔推送至 Docker Hub
