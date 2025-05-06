@@ -3,6 +3,23 @@
 本專案為一個公開的 Docker 專案示範，包含兩個不同版本的應用程式，並對應至兩個以上的 container image，分別為 `v1` 和 `v2`。這些映像檔皆已發布至 Docker Hub 公開倉庫 [`naoh0nnn/2025cloud`](https://hub.docker.com/repository/docker/noah0nnn/2025cloud)。
 
 
+
+---
+## 🚀 自動化建置流程架構圖
+
+```plaintext
+Push 到 main 分支 or PR → GitHub Action 觸發
+              │
+              ▼
+    對 image1 執行 docker build（tag: v1）
+    對 image2 執行 docker build（tag: v2）
+              │
+              ▼
+   登入 Docker Hub 並 push 至：
+   - docker.io/你的帳號/2025cloud:v1
+   - docker.io/你的帳號/2025cloud:v2
+```
+
 ---
 
 ## 🐳 如何 Build Docker Images 
